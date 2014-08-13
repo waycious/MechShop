@@ -1,0 +1,33 @@
+﻿
+<table class="table table-striped">
+    <tr>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Fixed</th>
+        <th>Details</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr ng-repeat="car in cars">
+        <td ng-hide="editing">{{car.make}}</td>
+        <td ng-hide="editing">{{car.model}}</td>
+        <td ng-hide="editing">{{car.year}}</td>
+        <td ng-hide="editing">{{car.fixed}}</td>
+        <td ng-show="editing"><input type="text" ng-model="car.make" /> </td>
+        <td ng-show="editing"><input type="text" ng-model="car.model" /> </td>
+        <td ng-show="editing"><input type="text" ng-model="car.year" /> </td>
+        <td ng-show="editing">
+            <select ng-model="car.fixed">
+                <option value='true'>True</option>
+                <option value='false'>False</option>
+            </select>
+        </td>
+        <td><a href="#/details/{{$index}}" class="btn btn-default">Details</a></td>
+        <td ng-hide="editing"><button class="btn btn-warning" ng-click="editing='true'">Edit</button></td>
+        <td ng-show="editing"><button class="btn btn-success" ng-click="editing='false'">Save</button></td>
+        <td><button class="btn btn-danger" ng-click="removeCar(car)">Remove</button></td>
+    </tr>
+</table>
+{{cars}}
+

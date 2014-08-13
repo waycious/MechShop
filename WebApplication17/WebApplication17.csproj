@@ -395,6 +395,9 @@
     <Content Include="Scripts\jquery-1.9.0.js" />
     <Content Include="Scripts\jquery-1.9.0.min.js" />
     <Content Include="Scripts\_script.js" />
+    <Content Include="Views\add.html" />
+    <Content Include="Views\details.html" />
+    <Content Include="Views\table.html" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.9.0.min.map" />
   </ItemGroup>

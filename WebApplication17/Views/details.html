@@ -1,0 +1,14 @@
+﻿<h2>{{car.year}} {{car.make}}</h2>
+<h3>{{car.model}}</h3>
+<img class="img-responsive" ng-hide="editing" ng-src="{{car.image}}" /><br />
+<p ng-hide="editing">{{car.problem}}</p>
+<div class="form-group">
+    <input class="form-control" ng-show="editing" type="text" ng-model="car.image" placeholder="Image" />
+    <input class="form-control" ng-show="editing" type="text" ng-model="car.problem" placeholder="Enter Problem" />
+    <button ng-hide="editing" class="form-control btn-warning" ng-click="editing='true'">Edit</button>
+    <button ng-show="editing" class="form-control btn btn-success" ng-click="editing='false'">Save</button>
+</div>
+<div class="form-group form-inline">
+    <button class="btn btn-primary" ng-click="prev()">Previous</button>
+    <button class="btn btn-primary" ng-click="next()">Next</button>
+</div>

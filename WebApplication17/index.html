@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="MechanicShop">
+<head>
+    <title></title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1>Mechanics R us</h1>
+        <div ng-controller="TableController">
+            <input type="text" ng-model="make" placeholder="Make" />
+            <input type="text" ng-model="model" placeholder="Model" />
+            <input type="text" ng-model="year" placeholder="Year" />
+            <button ng-click="addCar()">Submit</button>
+            <table class="table table-striped">
+                <tr>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Fixed</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr ng-repeat="car in cars">
+                    <td ng-hide="editing">{{car.make}}</td>
+                    <td ng-hide="editing">{{car.model}}</td>
+                    <td ng-hide="editing">{{car.year}}</td>
+                    <td ng-hide="editing">{{car.fixed}}</td>
+                    <td ng-show="editing"><input type="text" ng-model="car.make" /> </td>
+                    <td ng-show="editing"><input type="text" ng-model="car.model" /> </td>
+                    <td ng-show="editing"><input type="text" ng-model="car.year" /> </td>
+                    <td ng-show="editing">
+                        <select ng-model="car.fixed">
+                            <option value='true'>True</option>
+                            <option value='false'>False</option>
+                        </select>
+                    </td>
+                    <td ng-hide="editing"><button class="btn btn-warning" ng-click="editing='true'">Edit</button></td>
+                    <td ng-show="editing"><button class="btn btn-success" ng-click="editing='false'">Save</button></td>
+                    <td><button class="btn btn-danger" ng-click="removeCar(car)">Remove</button></td>
+                </tr>
+            </table>
+        </div>
+        <div ng-controller="DetailsController">
+        </div>
+    </div>
+    <script src="Scripts/jquery-1.9.0.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/_script.js"></script>
+</body>
+</html>
